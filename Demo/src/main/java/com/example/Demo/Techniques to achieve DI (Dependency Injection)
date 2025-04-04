@@ -1,0 +1,57 @@
+Techniques to achieve DI:
+1. Constructor Injection
+2. Setter Injection
+3. Field Injection
+
+Let us first create a Class Service to inject in the Class Controller
+
+public class Service{
+        public void doSomething(){
+        System.out.println("Hi, File that explains about dependency injection");
+        }
+    }
+
+1. Constructor Injection
+
+public class Controller {
+
+    private Service service;
+
+    public Controller(Service service){
+    this.service = service;
+    }
+
+    public void handleRequest(){
+       service.doSomething();
+    }
+}
+
+2. Setter Injection
+
+public class Controller {
+
+    private void Service service;
+
+    public Controller(Service service){
+    this.service = service;
+    }
+
+    public void handleRequest(){
+       service.doSomething();
+
+    }
+}
+
+3. Field Injection - uses the concept of @Autowired annotation
+
+public class Controller {
+
+    @Autowired
+    private Service service;
+
+    public void handleRequest(){
+       service.doSomething();
+
+    }
+}
+
